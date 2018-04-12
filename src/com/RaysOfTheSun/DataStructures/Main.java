@@ -1,5 +1,4 @@
 package com.RaysOfTheSun.DataStructures;
-import static java.lang.System.out;
 import com.RaysOfTheSun.DataStructures.Tree.BinarySearchTree.BinarySearchTree;
 
 public class Main {
@@ -14,6 +13,8 @@ public class Main {
 
         tree.ShowTraversals();
         tree.Remove(50);
+        System.out.println();
+        tree.ShowTraversals();
 
     }
 }
