@@ -1,4 +1,6 @@
 package com.RaysOfTheSun.DataStructures.Tree.BinarySearchTree;
+import static java.lang.System.out;
+import java.util.ArrayDeque;
 
 public class BinarySearchTree {
     Node rootNode = null;
@@ -118,6 +120,25 @@ public class BinarySearchTree {
         System.out.print(String.format("%d, ", node.data));
     }
 
+    private void TraverseLevelOrder(ArrayDeque<Node> queue){
+        if(queue.element().leftChild != null){
+            queue.addLast(queue.element().leftChild);
+        }
+        if(queue.element().rightChild != null){
+            queue.addLast(queue.element().rightChild);
+        }
+
+        out.printf("%d, ", queue.remove().data);
+        if(!queue.isEmpty())
+            TraverseLevelOrder(queue);
+    }
+
+    public void TraverseLevelOrder(){
+        ArrayDeque<Node> queue = new ArrayDeque<>();
+        queue.add(rootNode);
+        TraverseLevelOrder(queue);
+    }
+
     public void TraverseInorder(){
         TraverseInorder(rootNode);
     }
@@ -128,5 +149,20 @@ public class BinarySearchTree {
 
     public void TraversePostOrder(){
         TraversePostOrder(rootNode);
+    }
+
+    public void ShowTraversals(){
+        out.print("Inorder Traversal: ");
+        TraverseInorder();
+        out.println();
+        out.print("Postorder Traversal: ");
+        TraversePostOrder();
+        out.println();
+        out.print("Preorder Traversal: ");
+        TraversePreorder();
+        out.println();
+        out.print("LevelOrder Traversal: ");
+        TraverseLevelOrder();
+        out.println();
     }
 }

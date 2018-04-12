@@ -12,16 +12,7 @@ public class Main {
             tree.Add(data[i]);
         }
 
-        out.print("Inorder Traversal:");
-        tree.TraverseInorder();
-        out.println();
-        out.print("Postorder Traversal:");
-        tree.TraversePostOrder();
-        out.println();
-        out.print("Preorder Traversal:");
-        tree.TraversePreorder();
-        out.println();
-
+        tree.ShowTraversals();
         tree.Remove(50);
 
     }
